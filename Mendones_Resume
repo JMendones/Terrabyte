@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        p {
+            margin: 5px 0;
+        }
+        .profile-pic {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .list {
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="your-picture.jpg" alt="Profile Picture" class="profile-pic">
+        <h1>Joanne M. Mendones</h1>
+        <h2>Contact Information</h2>
+        <p>Email: jhowanneykim@gmail.com
+        <p>Contact Number: 09567746290
+        <p>Address: Purok 6 Binitayan Daraga Albay
+        <h2>Education</h2>
+        <h6>BACHELOR of SCIENCE in INFORMATION TECHNOLOGY with SPECIALIZATION in ANIMATION</h6>
+        <p>Bicol University Polangui 
