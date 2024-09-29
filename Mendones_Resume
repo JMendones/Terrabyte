@@ -48,12 +48,20 @@
 </head>
 <body>
     <div class="container">
-        <img src="your-picture.jpg" alt="Profile Picture" class="profile-pic">
+        <img src="https://scontent.fwnp1-1.fna.fbcdn.net/v/t39.30808-6/454524799_1637401903475508_4295427860582962093_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeG7waVhwAuAgxHNJBoD0PmMEwGXH9wvQL8TAZcf3C9Av9w4z1_6btppJe-kAQYf_sMDC9wkkvWgYA5BKZX1NRLr&_nc_ohc=ai5Ak3hPlGgQ7kNvgGi6d9e&_nc_ht=scontent.fwnp1-1.fna&oh=00_AYDQErQY2kiE9T8jgksi6UwkU6EtclthV5sRk5jW-S_atw&oe=66FF727D" alt="Profile Picture" class="profile-pic">
         <h1>Joanne M. Mendones</h1>
+        <h2>Career Objective</h2>
         <h2>Contact Information</h2>
-        <p>Email: jhowanneykim@gmail.com
-        <p>Contact Number: 09567746290
-        <p>Address: Purok 6 Binitayan Daraga Albay
+        <p>Email: jhowanneykim@gmail.com</p>
+        <p>Contact Number: 09567746290</p>
+        <p>Address: Purok 6 Binitayan Daraga Albay</p>
         <h2>Education</h2>
-        <h6>BACHELOR of SCIENCE in INFORMATION TECHNOLOGY with SPECIALIZATION in ANIMATION</h6>
-        <p>Bicol University Polangui 
+        <p><b>BACHELOR of SCIENCE in INFORMATION TECHNOLOGY with SPECIALIZATION in ANIMATION</b></p>
+        <p>Bicol University Polangui</p>
+        <p>2022-Present</p>
+        <p><b>HUMANITIES and SOCIAL SCIENCE</b></p>
+        <p>South East-Asia Institute of Trade and Technology, Legazpi Branch</p>
+        <p>2020-2022</p>
+        
+        <h2>Achievements</h2>
+        <h2>Skills</h2>
