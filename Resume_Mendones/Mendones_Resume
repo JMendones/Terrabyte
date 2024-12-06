@@ -3,85 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
+    <title>Art Portfolio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
             background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
         }
         .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            background: white;
+            max-width: 900px;
+            margin: 20px auto;
+            background: rgb(255, 255, 255);
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
         }
-        h1 {
+        h1, h2 {
             text-align: center;
             color: #333;
         }
-        h2 {
-            color: #555;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 5px;
-            margin-top: 20px;
-        }
-        p {
-            margin: 5px 0;
+        p, li {
+            line-height: 1.6;
         }
         .profile-pic {
             display: block;
-            margin: 0 auto;
+            margin: 0 auto 20px;
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
         }
-        .list {
-            list-style-type: none;
-            padding: 0;
+
+        /* Image and Video Slider */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            height: 500px;  /* Set a fixed height for the slider */
+            overflow: hidden;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            width: 100%;
+            flex-shrink: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);  /* Create a grid with 3 columns */
+            gap: 10px;
+            padding: 10px;
+        }
+        .slide img, .slide video {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .slider-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .slider-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Account Links */
+        .account-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .account-links a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .account-links a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="https://scontent.fwnp1-1.fna.fbcdn.net/v/t39.30808-6/454524799_1637401903475508_4295427860582962093_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeG7waVhwAuAgxHNJBoD0PmMEwGXH9wvQL8TAZcf3C9Av9w4z1_6btppJe-kAQYf_sMDC9wkkvWgYA5BKZX1NRLr&_nc_ohc=ai5Ak3hPlGgQ7kNvgGi6d9e&_nc_ht=scontent.fwnp1-1.fna&oh=00_AYDQErQY2kiE9T8jgksi6UwkU6EtclthV5sRk5jW-S_atw&oe=66FF727D" alt="Profile Picture" class="profile-pic">
-        <h1>Joanne M. Mendones</h1>
-        <h2>Career Objective</h2>
-        <p>Basta may money kwarta sintabo</p>
-        <h2>Contact Information</h2>
-        	<p>Email: jhowanneykim@gmail.com</p>
-        	<p>Contact Number: 09567746290</p>
-        	<p>Address: Purok 6 Binitayan Daraga Albay</p>
-        <h2>Education</h2>
-        	<p><b>BACHELOR of SCIENCE in INFORMATION TECHNOLOGY with SPECIALIZATION in ANIMATION</b></p>
-        	<p>Bicol University Polangui</p>
-        	<p>2022-Present</p>
-        	<p><b>HUMANITIES and SOCIAL SCIENCE</b></p>
-        	<p>South East-Asia Institute of Trade and Technology, Legazpi Branch</p>
-        	<p>2020-2022</p> 
-        	<p><b>SECONDARY</b> </p>
-        	<p>Daraga National High School</p>
-        	<p>2016-2020</p>
-        	<p><b>PRIMARY</b></p>
-        	<p>Binitayan Elementary School</p>
-            <p>2010-2016</p>
-        	<p><b>KINDER</b></p>
-        	<p>Binitayan Elementary School</p>
-        	<p>2009-2010</p>
-        <h2>Credentials</h2>
-       	    <p>Assistant Treasurer, ANIMUS, 2024-2025</p>
-        	<p>Finance Committee, ANIMUS, 2024</p>
-        	<p>Block Treasurer, 2023-2025</p>    
-        <h2>Achievements</h2>
-        	<p>Dean's Lister, 2023-2024</p>
-        	<p>With High Honor, 2021-2022</p>
-        	<p>Best in Preactical Research I, 2020-2021</p>
-        	<p>Best in Earth and Life Science, 2020-2021</p>
-         	<p>Best in  Physical Education, 2020-2021</p>
-        <h2>Skills</h2>
-        <p>Gumastos</p>
+        <h1>Art Portfolio</h1>
+        <img class="profile-pic" src="media/pfp.jpeg" alt="Profile Picture">
 
+        <!-- Account Links -->
+        <div class="account-links">
+            <h2>Joanne M. Mendones</h2>
+            <a href="https://www.facebook.com/wiwi.achoo" target="_blank">Facebook</a>
+            <a href="https://x.com/cupofjoowie" target="_blank">X</a>
+            <a href="https://www.instagram.com/cupofjoowie" target="_blank">Instagram</a>
+            <a href="https://pin.it/3CLRURU2Y" target="_blank">Pinterest</a>
+            <a href="https://cara.app/cupofjoowie" target="_blank">Cara</a>
+            <a href="https://github.com/JMendones" target="_blank">GitHub</a>
+        </div>
+
+        <!-- Image Slider with Grid Layout -->
+        <h2>Featured Artworks</h2>
+        <div class="slider" id="imageSlider">
+            <div class="slides" id="imageSlides">
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <img src="media/Bella.png" alt="Bella">
+                    <img src="media/Art_Collab_01.png" alt="Art_Collab_01">
+                    <img src="media/teapot.png" alt="fanart">
+                </div>
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img src="media/fanart.png" alt="fanart">
+                    <img src="media/hisoka.png" alt="hisoka">
+                    <img src="media/jaez.png" alt="jaez">
+                </div>
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <img src="media/Post-apocalyptic-garden_of_eve.png" alt="Post-apocalyptic-garden_of_eve">
+                    <img src="media/Nezuko.png" alt="Nezuko">
+                    <img src="media/artcollabwithsector.png" alt="artcollabwithsector">
+                </div>
+                <!-- Slide 4 -->
+                <div class="slide">
+                    <img src="media/Me_portrait.png" alt="Me_portrait">
+                    <img src="media/Yor_Forger_FanArt.png" alt="Yor_Forger_FanArt">
+                    
+                </div>
+                <!-- Additional slides can be added similarly -->
+            </div>
+            <div class="slider-buttons">
+                <button class="slider-button" onclick="prevSlide('image')">Previous</button>
+                <button class="slider-button" onclick="nextSlide('image')">Next</button>
+            </div>
+        </div>
+
+        <!-- Video Slider with Grid Layout -->
+        <h2>Featured Videos</h2>
+        <div class="slider" id="videoSlider">
+            <div class="slides" id="videoSlides">
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <video controls>
+                        <source src="media/Mendones_LipSync.mp4" type="video/mp4">
+                    </video>
+                    <video controls>
+                        <source src="media/fanart_timelapse.mp4" type="video/mp4">
+                    </video>
+                    <video controls>
+                        <source src="media/eye_timelapse.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <!-- Additional slides can be added similarly -->
+            </div>
+            <div class="slider-buttons">
+                <button class="slider-button" onclick="prevSlide('video')">Previous</button>
+                <button class="slider-button" onclick="nextSlide('video')">Next</button>
+            </div>
+        </div>
+
+        <!-- About Me -->
+        <h2>About Me</h2>
+        <p style="text-align: center;">
+            My name is Joanne M. Mendones, a passionate IT and Animation student from Bicol University Polangui. I am an animator, graphic designer, digital artist, and photographer with a passion for bringing creative ideas to life. With expertise in 2D and 3D animation, graphic design, and photography, I specialize in creating visually impactful projects that tell compelling stories. I strive to deliver innovative and high-quality work, whether through animations, designs, or photography.
+        </p>
+
+        <!-- Contact Information -->
+        <h2>Contact Information</h2>
+        <p style="text-align: center;">
+            Email: <a href="mailto:jhowanneykim@gmail.com">jhowanneykim@gmail.com</a><br>
+            Contact Number: <a href="tel:09567746290">09567746290</a><br>
+            Address: Purok 6, Binitayan, Daraga, Albay
+        </p>
+
+        <!-- Education -->
+        <h2>Education</h2>
+        <ul>
+            <li><b>Bachelor of Science in Information Technology with Specialization in Animation</b><br>Bicol University Polangui (2022-Present)</li>
+            <li><b>Humanities and Social Science</b><br>South East-Asia Institute of Trade and Technology (2020-2022)</li>
+            <li><b>Secondary Education</b><br>Daraga National High School (2016-2020)</li>
+            <li><b>Primary Education</b><br>Binitayan Elementary School (2010-2016)</li>
+        </ul>
+
+        <!-- Achievements -->
+        <h2>Achievements</h2>
+        <ul>
+            <li>Dean's Lister (2023-2024)</li>
+            <li>Graduated with High Honors (2021-2022)</li>
+            <li>Best in Practical Research I (2020-2021)</li>
+            <li>Top 5 in National Digital Art Competition (2022)</li>
+        </ul>
+    </div>
+
+    <script>
+        function prevSlide(type) {
+            var slides = document.getElementById(type + 'Slides');
+            var firstSlide = slides.firstElementChild;
+            slides.appendChild(firstSlide); // Move the first slide to the end
+        }
+
+        function nextSlide(type) {
+            var slides = document.getElementById(type + 'Slides');
+            var lastSlide = slides.lastElementChild;
+            slides.insertBefore(lastSlide, slides.firstElementChild); // Move the last slide to the front
+        }
+    </script>
+</body>
+</html>
+ 
