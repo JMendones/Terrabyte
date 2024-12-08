@@ -40,7 +40,7 @@
             position: relative;
             width: 100%;
             max-width: 900px;
-            height: 500px;  /* Set a fixed height for the slider */
+            height: 500px;  
             overflow: hidden;
             margin-bottom: 20px;
             border-radius: 8px;
@@ -53,7 +53,7 @@
             width: 100%;
             flex-shrink: 0;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);  /* Create a grid with 3 columns */
+            grid-template-columns: repeat(3, 1fr); 
             gap: 10px;
             padding: 10px;
         }
@@ -104,7 +104,6 @@
         <h1>Art Portfolio</h1>
         <img class="profile-pic" src="media/pfp.jpeg" alt="Profile Picture">
 
-        <!-- Account Links -->
         <div class="account-links">
             <h2>Joanne M. Mendones</h2>
             <a href="https://www.facebook.com/wiwi.achoo" target="_blank">Facebook</a>
@@ -115,7 +114,6 @@
             <a href="https://github.com/JMendones" target="_blank">GitHub</a>
         </div>
 
-        <!-- Image Slider with Grid Layout -->
         <h2>Featured Artworks</h2>
         <div class="slider" id="imageSlider">
             <div class="slides" id="imageSlides">
@@ -125,25 +123,21 @@
                     <img src="media/Art_Collab_01.png" alt="Art_Collab_01">
                     <img src="media/teapot.png" alt="fanart">
                 </div>
-                <!-- Slide 2 -->
                 <div class="slide">
                     <img src="media/fanart.png" alt="fanart">
                     <img src="media/hisoka.png" alt="hisoka">
                     <img src="media/jaez.png" alt="jaez">
                 </div>
-                <!-- Slide 3 -->
                 <div class="slide">
                     <img src="media/Post-apocalyptic-garden_of_eve.png" alt="Post-apocalyptic-garden_of_eve">
                     <img src="media/Nezuko.png" alt="Nezuko">
                     <img src="media/artcollabwithsector.png" alt="artcollabwithsector">
                 </div>
-                <!-- Slide 4 -->
                 <div class="slide">
                     <img src="media/Me_portrait.png" alt="Me_portrait">
                     <img src="media/Yor_Forger_FanArt.png" alt="Yor_Forger_FanArt">
                     
                 </div>
-                <!-- Additional slides can be added similarly -->
             </div>
             <div class="slider-buttons">
                 <button class="slider-button" onclick="prevSlide('image')">Previous</button>
@@ -151,7 +145,6 @@
             </div>
         </div>
 
-        <!-- Video Slider with Grid Layout -->
         <h2>Featured Videos</h2>
         <div class="slider" id="videoSlider">
             <div class="slides" id="videoSlides">
@@ -167,7 +160,6 @@
                         <source src="media/eye_timelapse.mp4" type="video/mp4">
                     </video>
                 </div>
-                <!-- Additional slides can be added similarly -->
             </div>
             <div class="slider-buttons">
                 <button class="slider-button" onclick="prevSlide('video')">Previous</button>
@@ -175,13 +167,11 @@
             </div>
         </div>
 
-        <!-- About Me -->
         <h2>About Me</h2>
         <p style="text-align: center;">
             My name is Joanne M. Mendones, a passionate IT and Animation student from Bicol University Polangui. I am an animator, graphic designer, digital artist, and photographer with a passion for bringing creative ideas to life. With expertise in 2D and 3D animation, graphic design, and photography, I specialize in creating visually impactful projects that tell compelling stories. I strive to deliver innovative and high-quality work, whether through animations, designs, or photography.
         </p>
 
-        <!-- Contact Information -->
         <h2>Contact Information</h2>
         <p style="text-align: center;">
             Email: <a href="mailto:jhowanneykim@gmail.com">jhowanneykim@gmail.com</a><br>
@@ -189,7 +179,6 @@
             Address: Purok 6, Binitayan, Daraga, Albay
         </p>
 
-        <!-- Education -->
         <h2>Education</h2>
         <ul>
             <li><b>Bachelor of Science in Information Technology with Specialization in Animation</b><br>Bicol University Polangui (2022-Present)</li>
@@ -198,7 +187,6 @@
             <li><b>Primary Education</b><br>Binitayan Elementary School (2010-2016)</li>
         </ul>
 
-        <!-- Achievements -->
         <h2>Achievements</h2>
         <ul>
             <li>Dean's Lister (2023-2024)</li>
@@ -211,13 +199,13 @@
         function prevSlide(type) {
             var slides = document.getElementById(type + 'Slides');
             var firstSlide = slides.firstElementChild;
-            slides.appendChild(firstSlide); // Move the first slide to the end
+            slides.appendChild(firstSlide); 
         }
 
         function nextSlide(type) {
             var slides = document.getElementById(type + 'Slides');
             var lastSlide = slides.lastElementChild;
-            slides.insertBefore(lastSlide, slides.firstElementChild); // Move the last slide to the front
+            slides.insertBefore(lastSlide, slides.firstElementChild); 
         }
     </script>
 </body>
