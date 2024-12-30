@@ -57,6 +57,7 @@
         <table class="table" style="width: 1300px; text-align: center; align-self: center; margin-bottom: 150px;">
             <thead style="">
                 <tr>
+                    <th>Order ID</th>
                     <th>Order Date</th>
                     <th>Delivery Address</th>
                     <th>Grand Total</th>
@@ -67,26 +68,30 @@
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT * FROM `orders` WHERE `user_ID` = $user_ID";
+                    //Selecting 10 rows from the database in a descending order
+                    $sql = "SELECT * FROM `orders` WHERE `user_ID` = $user_ID ORDER BY `order_date` DESC LIMIT 10";
                     $result = $conn->query($sql);
 
                     if (!$result) {
                         die("Invalid query: " . $conn->error);
                     }
 
+                    //Improved logic for button state based on order status
                     while($row = $result->fetch_assoc()) {
                         $order_status = $row['order_status'];
-                        $disabled = $order_status === 'Order Cancelled' ? 'disabled' : '';
-                        $button_text = $order_status === 'Order Cancelled' ? 'Cancelled' : 'Cancel';
+                        $disabled = ($order_status === 'Order Cancelled' || $order_status === 'Order Paid') ? 'disabled' : '';
+                        $button_text = ($order_status === 'Order Cancelled') ? 'Cancelled' : (($order_status === 'Order Paid') ? 'Paid' : 'Cancel');
 
                         echo "
                             <tr>
+                                <td>$row[order_ID]</td>
                                 <td>$row[order_date]</td>
                                 <td>$row[address]</td>
                                 <td>₱ $row[order_total]</td>
                                 <td>$row[pmode]</td>
                                 <td>$order_status</td>
                                 <td>
+                                    <a href='view_orders.php?order_ID={$row['order_ID']}' class='btn'>View</a>
                                     <a class='btn rounded cancel-btn $disabled' href='include/delete.php?id=$row[order_ID]' 
                                     onclick='cancelOrder(this, event)'>$button_text</a>
                                 </td>
@@ -102,7 +107,7 @@
         // Function to update the order status to "Order Cancelled"
         function cancelOrder(button, event) {
             event.preventDefault(); 
-            
+
             const orderId = button.getAttribute('href').split('=')[1]; 
 
             // AJAX request to update the order status in the database
@@ -119,7 +124,7 @@
 
                     // Update the order status in the table
                     const orderRow = button.closest('tr');
-                    const statusCell = orderRow.querySelector('td:nth-child(5)');
+                    const statusCell = orderRow.querySelector('td:nth-child(6)');
                     statusCell.textContent = 'Order Cancelled';
                 } else {
                     console.error('Error updating order status:', xhr.statusText);

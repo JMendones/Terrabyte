@@ -31,22 +31,42 @@ if (isset($_POST['submit'])) {
     }
 
     if ($select_cart && mysqli_num_rows($select_cart) > 0) {
-        // Process each item in the cart
         while ($fetch_cart = mysqli_fetch_assoc($select_cart)) {
             $sub_total = $fetch_cart['prod_price'] * $fetch_cart['prod_qty'];
-            $grand_total += $sub_total; // Add subtotal for each product here
-            $items[] = $fetch_cart['prod_name'] . ' (' . $fetch_cart['prod_qty'] . ')';
+            $grand_total += $sub_total;
+            // Add full cart item data instead of a concatenated string
+            $items[] = [
+                'prod_name' => $fetch_cart['prod_name'],
+                'prod_qty' => $fetch_cart['prod_qty'],
+                'prod_price' => $fetch_cart['prod_price']
+            ];
         }
-        $allItems = implode(', ', $items);
+        $allItems = implode(', ', array_map(function ($item) {
+            return $item['prod_name'] . ' (' . $item['prod_qty'] . ')';
+        }, $items));
     } else {
         $allItems = "No items in your cart.";
         $grand_total = 0;
-    }
+    }    
 
     $insertOrder = "INSERT INTO orders (user_ID, order_date, order_total, pmode, phone, address, fullName, order_status)
                 VALUES ('$user_ID', '$order_date', '$grand_total', '$payment', '$phone', '$address', '$fullName', 'Order Placed')";
 
     if (mysqli_query($conn, $insertOrder)) {
+        // Get the order_ID of the newly created order
+        $order_ID = mysqli_insert_id($conn);
+
+        // Insert each item into the orders_view table
+        foreach ($items as $item) {
+            $prod_name = $item['prod_name'];
+            $prod_qty = $item['prod_qty'];
+            $prod_price = $item['prod_price'];
+        
+            $insertOrderView = "INSERT INTO orders_view (order_ID, user_ID, prod_name, prod_qty, prod_price)
+                                VALUES ('$order_ID', '$user_ID', '$prod_name', '$prod_qty', '$prod_price')";
+            mysqli_query($conn, $insertOrderView);
+        }
+
         // Remove items from the cart after order is placed
         $deleteCartItems = mysqli_query($conn, "DELETE FROM `cart` WHERE `user_ID` = '$user_ID'"); 
         unset($_SESSION['cart']);
